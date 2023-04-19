@@ -1,4 +1,5 @@
 
+[![Documentation Status][documentation-shield]][documentation]
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
 
@@ -21,6 +22,9 @@ The Smart Powermeter works as a shield for the TTGO T-Display allowing the measu
 <li><a href="./README.md">README.md</a></li>
 
 
+
+[documentation-shield]: https://readthedocs.org/projects/smart-powermeter/badge/?version=latest&style=for-the-badge
+[documentation]: https://smart-powermeter.readthedocs.io/en/latest/
 
 [releases-shield]: https://img.shields.io/github/release/JGAguado/Smart_Powermeter.svg?style=for-the-badge
 [releases]: https://github.com/JGAguado/Smart_Powermeter/releases
