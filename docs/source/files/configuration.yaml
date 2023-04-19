@@ -1,0 +1,263 @@
+substitutions:
+  device_name: "smart-powermeter"
+  friendly_name: "Smart Powermeter"
+  project_name: "smart.powermeter"
+  project_version: "2.0"
+  ap_ssid: "Smart-Powermeter"
+  ap_pwd: "smartpowermeter"
+
+esphome:
+  name: "${device_name}"
+  name_add_mac_suffix: true
+  project:
+    name: "${project_name}"
+    version: "${project_version}"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Enable Over The Air updates
+ota:
+
+#Public location of this yaml file
+dashboard_import:
+  package_import_url: github://JGAguado/Smart_Powermeter/docs/source/files/configuration.yaml
+  import_full_config: false
+
+# Enable fallback hotspot (captive portal) in case wifi connection fails
+captive_portal:
+
+esp32_improv:
+  authorizer: none
+
+improv_serial:
+
+wifi:
+  ap:
+    ssid: "${ap_ssid}"
+    password: "${ap_pwd}"
+
+color:
+  - id: my_red
+    red: 100%
+    green: 0%
+    blue: 0%
+  - id: my_yellow
+    red: 100%
+    green: 100%
+    blue: 0%
+  - id: my_green
+    red: 0%
+    green: 100%
+    blue: 0%
+  - id: my_blue
+    red: 23.92%
+    green: 65.1%
+    blue: 84.71%
+  - id: my_gray
+    red: 50%
+    green: 50%
+    blue: 50%
+
+binary_sensor:
+  - platform: status
+    name: "Node Status"
+    id: system_status
+
+switch:
+  - platform: gpio
+    pin: GPIO4
+    name: "Backlight"
+    id: backlight
+
+time:
+  - platform: homeassistant
+    id: esptime
+
+spi:
+  clk_pin: GPIO18
+  mosi_pin: GPIO19
+
+font:
+  - file: "fonts/Audiowide.ttf"
+    id: audiowide_48
+    size: 48
+  - file: "fonts/Audiowide.ttf"
+    id: audiowide_20
+    size: 20
+  - file: "fonts/Audiowide.ttf"
+    id: audiowide_18
+    size: 18
+  - file: "fonts/Audiowide.ttf"
+    id: audiowide_12
+    size: 12
+  - file: "fonts/Audiowide.ttf"
+    id: audiowide_14
+    size: 14
+  - file: 'fonts/materialdesignicons-webfont_6.5.95.ttf'
+    id: font_icon
+    size: 20
+    glyphs: [
+      "󱔸", # Connected
+      "󱔑" # Diconnecte
+    ]
+
+    
+
+image:
+  - file: "bck_gauge.png"
+    id: background
+    type: RGB24
+
+display:
+  - platform: st7789v
+    backlight_pin: GPIO4
+    cs_pin: GPIO5
+    dc_pin: GPIO16
+    reset_pin: GPIO23
+    rotation: 90
+    pages:
+      - id: main
+        lambda: |-
+          it.image(0, 0, id(background));
+
+          // Header
+          it.print(2, 5, id(audiowide_14), id(my_gray), TextAlign::TOP_LEFT, "Smart Power-meter");
+          it.strftime(215, 5, id(audiowide_14), id(my_gray), TextAlign::TOP_RIGHT, "%H:%M", id(esptime).now());
+          if (id(system_status).state) {
+            it.print(240, 5, id(font_icon), id(my_green), TextAlign::TOP_RIGHT, "󱔸");
+          }
+          else {
+            it.print(240, 5, id(font_icon), id(my_red), TextAlign::TOP_RIGHT, "󱔑");
+          }
+
+          // Values of current and daily consumed power
+          it.printf(5, 50 + 5, id(audiowide_20), id(my_gray), TextAlign::TOP_LEFT, "%.1fW", id(current_power).state*1000.0);
+          it.printf(5, 80 + 5, id(audiowide_20), id(my_gray), TextAlign::TOP_LEFT, "%.2fkW/h", id(daily_power).state);
+          it.printf(5, 110 + 5, id(audiowide_20), id(my_gray), TextAlign::TOP_LEFT, "%.2fEUR", id(daily_cost).state);
+
+          // Real time consumption indicator
+          float pi = 3.141592653589793;
+          float alpha = 4.71238898038469; // Defined as the gauge angle in radians (270deg)
+          float beta = 2*pi - alpha;
+          int radius = 42;              // Radius of the gauge in pixels
+          int thick = 7;                // Size of the marker 
+          int needle_radius= 9;
+
+          int min_range = 0; 
+          int max_range = 10;
+          int xc = 180;
+          int yc = 85;
+          
+          float measured = id(current_power).state;
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          float val = (measured - min_range) / abs(max_range - min_range) * alpha;
+          
+          int xc0 = static_cast<int>(xc);
+          int yc0 = static_cast<int>(yc);
+          int x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          int y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          int x1 = static_cast<int>(xc + needle_radius * cos(pi / 2 + beta / 2 + val + 0.1));
+          int y1 = static_cast<int>(yc + needle_radius * sin(pi / 2 + beta / 2 + val + 0.1));
+          int x2 = static_cast<int>(xc + needle_radius * cos(pi / 2 + beta / 2 + val - 0.1));
+          int y2 = static_cast<int>(yc + needle_radius * sin(pi / 2 + beta / 2 + val - 0.1));
+          int x3 = static_cast<int>(xc + needle_radius * cos(pi / 2 + beta / 2 + val + 0.2));
+          int y3 = static_cast<int>(yc + needle_radius * sin(pi / 2 + beta / 2 + val + 0.2));
+          int x4 = static_cast<int>(xc + needle_radius * cos(pi / 2 + beta / 2 + val - 0.2));
+          int y4 = static_cast<int>(yc + needle_radius * sin(pi / 2 + beta / 2 + val - 0.2));
+          int x5 = static_cast<int>(xc + needle_radius * cos(pi / 2 + beta / 2 + val));
+          int y5 = static_cast<int>(yc + needle_radius * sin(pi / 2 + beta / 2 + val));
+          it.line(x0, y0, x1, y1, id(my_blue));
+          it.line(x0, y0, x2, y2, id(my_blue));
+          it.line(x0, y0, x3, y3, id(my_blue));
+          it.line(x0, y0, x4, y4, id(my_blue));
+          it.line(x0, y0, x5, y5, id(my_blue));
+          
+
+
+      
+sensor:
+  - platform: homeassistant
+    id: daily_cost
+    name: "Daily cost"
+    entity_id: sensor.total_daily_power_cost
+
+    
+  - platform: adc
+    pin: GPIO1
+    id: Input_1
+    attenuation: 11db
+    update_interval: 1s
+    
+  - platform: adc
+    pin: GPIO2
+    id: Input_2
+    attenuation: 11db
+    update_interval: 1s
+    
+  - platform: adc
+    pin: GPIO3
+    id: Input_3
+    attenuation: 11db
+    update_interval: 1s
+   
+  - platform: ct_clamp
+    sensor: Input_1
+    id: Probe_1
+    name: "Probe 1"
+    sample_duration: 200ms
+    update_interval: 1s
+    filters:
+      - calibrate_linear:
+          - 0 -> 0
+          - 0.042 -> 2.72
+   
+  - platform: ct_clamp
+    sensor: Input_2
+    name: "Probe 2"
+    id: Probe_2
+    sample_duration: 200ms
+    update_interval: 1s
+    filters:
+      - calibrate_linear:
+          - 0 -> 0
+          - 0.033 -> 1.07
+   
+  - platform: ct_clamp
+    sensor: Input_3
+    name: "Probe 3"
+    id: Probe_3
+    sample_duration: 200ms
+    update_interval: 1s
+    filters:
+      - calibrate_linear:
+          - 0 -> 0
+          - 0.022 -> 0.66
+    
+  - platform: total_daily_energy
+    name: "Total Daily Power"
+    power_id: current_power
+    id: daily_power
+
+  - platform: template
+    id: current_power
+    name: "Measured Power"
+    lambda: return (id(Probe_1).state + id(Probe_2).state + id(Probe_3).state) * 230.0 / 1000; #Power = Current * Voltage 
+    unit_of_measurement: 'kW'
+    update_interval: 5s
+
