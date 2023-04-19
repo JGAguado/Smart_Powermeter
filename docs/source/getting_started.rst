@@ -89,7 +89,7 @@ Enclosure
 The |Product| has been designed to fit in the electronics enclosure LK-PLC01,
 compatible with DIN rails and screws, and it is recommended for indoors only.
 
-.. figure:: ../../Documentation/Images/SL_X4_1.png
+.. figure:: images/assembly/enclosure.png
     :align: center
     :figwidth: 300px
 

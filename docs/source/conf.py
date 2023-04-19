@@ -23,7 +23,7 @@ rst_epilog  = """
 .. |Email| replace:: %s
 .. |Release| replace:: %s
 .. |Date| replace:: %s
-""" % (project + ' ' + version, author, email, release, compile_date)
+""" % (project, author, email, release, compile_date)
 
 
 # -- General configuration

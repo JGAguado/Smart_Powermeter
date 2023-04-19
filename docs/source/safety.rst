@@ -15,7 +15,7 @@ Risk of electric shock
     :align: right
     :figwidth: 200px
 
-The usage of this product could imply working with high voltage installations (:math:`100-240 V_{AC}`). Perform any action, specially in the area with this symbol on the board, with the appropriate means and always with safety. 
+The usage of this product could imply working with high voltage installations (:math:`220-240 V_{AC}`). Perform any action, specially in the area with this symbol on the board, with the appropriate means and always with safety. 
 
 If you have any question, please check with technical support (:ref:`support`) before taking any action potentially dangerous.
 
@@ -24,7 +24,7 @@ Protection against :term:`ESD`
 
 .. figure:: images/safety/esd.png
     :align: left
-    :figwidth: 100px
+    :figwidth: 80px
 
 The |Product| contains components sensitive to :term:`ESD`, which can be damaged by inappropriate handling. 
 It's therefore necessary to provide some safety precautions against :term:`ESD` during the handling and operation.

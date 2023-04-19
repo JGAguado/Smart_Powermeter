@@ -23,7 +23,7 @@ Electronic schematics
 Enclosure drawings
 ------------------
 
-.. image:: ../../Enclosure/LK-PLC01.png
+.. image:: images/assembly/enclosure.png
     :width: 100%
 
 :download:`Download PDF <../../Enclosure/LK-PLC01.pdf>`
