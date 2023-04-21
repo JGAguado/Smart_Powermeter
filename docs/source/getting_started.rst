@@ -20,7 +20,7 @@ The |Product| can be powered in two ways: through the USB-C (only for programmin
     Power the board only after making all the connections
 
 
-AC Input
+AC Power
 ^^^^^^^^^^^^^
 If your preffer not to use external power suplies you can mount the `HLK-2M05 Series <https://www.hlktech.com/en/Goods-39.html>`_, a 2W AC-DC step-down 
 switching power supply module, ready to receive the 220V and deliver 5V (later on lowered to 3V3 for the ESP32 module)
@@ -29,46 +29,32 @@ switching power supply module, ready to receive the 220V and deliver 5V (later o
     If your are using the AC power **never touch the board while is powered**. 
 
 
-I/O
+Input
 -----------
 The |Product| supports up to 6 independent *analog inputs* ready to read CT clamps (or probes):
 
 .. _pinout:
 
 .. list-table:: Pinout table
-    :widths: 10 10 10 20
+    :widths: 10 20
     :header-rows: 1
 
     * - GPIO
-      - Input
-      - Output
       - Name
-    * - 1
-      - ✅
-      - ❌
+    * - 01
       - Probe 0
-    * - 2
-      - ✅
-      - ❌
+    * - 02
       - Probe 1
-    * - 3
-      - ✅
-      - ❌
+    * - 03
       - Probe 2
-    * - 4
-      - ✅
-      - ❌
+    * - 04
       - Probe 3
-    * - 5
-      - ❌
-      - ✅
+    * - 05
       - Probe 4
-    * - 6
-      - ❌
-      - ✅
+    * - 06
       - Probe 5
 
-
+The 
 
 Communications
 -----------
@@ -76,6 +62,9 @@ In addition to the analog input mentioned before, there is also a direct connect
 
 :term:`IIC` (:math:`I^2C`) bus:
 ^^^^^^^^
+This port is not accessible from external pins, but internally connected to a BMP280 sensor that can offer info about 
+environmental temperature & pressure:
+
 :SDA: *GPIO33*
 :SCL: *GPIO34*
 
