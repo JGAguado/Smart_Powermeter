@@ -54,7 +54,9 @@ The |Product| supports up to 6 independent *analog inputs* ready to read CT clam
     * - 06
       - Probe 5
 
-The 
+On each channel, there is internally a very simple circuit that adapts the induced voltage on the CT clamp (proportional to the current measured)
+and makes the signal ready to be read by the :term:`ADC` of the microcontroller, you can get to know more about the `circuit behind <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_  
+in this excelent `guide of electricity monitoring <https://docs.openenergymonitor.org/electricity-monitoring/index.html>`_ 
 
 Communications
 -----------

@@ -3,6 +3,9 @@
    IC
        Integrated Circuit
 
+   ADC
+        Analog-to-digital converter
+
    TTL
        Transistor-Transistor Logic
 
