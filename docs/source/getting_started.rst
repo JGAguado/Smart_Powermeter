@@ -61,13 +61,15 @@ wide number of ranges and with a 3.5 jack connector.
     :align: center
     :figwidth: 300px
 
-When acquiring them it's important to take into account if it comes with a burden resistor or not, this can be checked on the engraved information on the clamp: 
- * If the clamp has a conversion from amps to amps (100A:50mA) no futher action is needed but a calibration afterwards.
 
 .. figure:: images/getting_started/amps_to_amps.png
     :align: right
     :figwidth: 100px 
+    
+    
+When acquiring them it's important to take into account if it comes with a burden resistor or not, this can be checked on the engraved information on the clamp: 
 
+ * If the clamp has a conversion from amps to amps (100A:50mA) no futher action is needed but a calibration afterwards.
  * If the clamp has a conversion from amps to voltage (50A:1V) it means that it has already a resistor, and in such case you should desolder the SMD resistor on the Smart Powermeter 
 PCB.
 
@@ -80,11 +82,14 @@ On each channel, there is internally a very simple circuit that adapts the induc
 and makes the signal ready to be read by the :term:`ADC` of the microcontroller, you can get to know more about the `circuit behind <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_  
 in this excelent `guide of electricity monitoring <https://docs.openenergymonitor.org/electricity-monitoring/index.html>`_ 
 
-Although the theoretical value calculated should be good enough for the measurements, I would recommend a calibration with a handheld ammeter on each channel.
-
 .. figure:: images/getting_started/ammeter.png
     :align: right
     :figwidth: 100px 
+    
+Although the theoretical value calculated should be good enough for the measurements, I  recommend to calibrate each channel with a handheld ammeter at different power loads, this can be
+later implemented as a linear calibration on ESPHome.
+
+
 
 Communications
 -----------
