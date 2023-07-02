@@ -59,12 +59,12 @@ wide number of ranges and with a 3.5 jack connector.
 
 .. figure:: images/getting_started/CT.png
     :align: center
-    :figwidth: 300px
+    :figwidth: 400px
 
 
 .. figure:: images/getting_started/amps_to_amps.png
     :align: right
-    :figwidth: 100px 
+    :figwidth: 200px 
     
     
 When acquiring them it's important to take into account if it comes with a burden resistor or not, this can be checked on the engraved information on the clamp: 
@@ -84,7 +84,7 @@ in this excelent `guide of electricity monitoring <https://docs.openenergymonito
 
 .. figure:: images/getting_started/ammeter.png
     :align: right
-    :figwidth: 100px 
+    :figwidth: 50px 
     
 Although the theoretical value calculated should be good enough for the measurements, I  recommend to calibrate each channel with a handheld ammeter at different power loads, this can be
 later implemented as a linear calibration on ESPHome.
