@@ -57,21 +57,21 @@ The |Product| supports up to 6 independent *analog inputs* ready to read CT clam
 Regarding the kind of CT-clamps, I recommend the SCT-013-000 series, comming in a 
 wide number of ranges and with a 3.5 jack connector. 
 
-.. figure:: images/getting_starte/CT.png
+.. figure:: images/getting_started/CT.png
     :align: center
     :figwidth: 300px
 
 When acquiring them it's important to take into account if it comes with a burden resistor or not, this can be checked on the engraved information on the clamp: 
  * If the clamp has a conversion from amps to amps (100A:50mA) no futher action is needed but a calibration afterwards.
 
-.. figure:: images/getting_starte/amps_to_amps.png
+.. figure:: images/getting_started/amps_to_amps.png
     :align: right
     :figwidth: 100px 
 
  * If the clamp has a conversion from amps to voltage (50A:1V) it means that it has already a resistor, and in such case you should desolder the SMD resistor on the Smart Powermeter 
 PCB.
 
-.. figure:: images/getting_starte/burden_resistor.png
+.. figure:: images/getting_started/burden_resistor.png
     :align: center
     :figwidth: 300px
   
@@ -82,7 +82,7 @@ in this excelent `guide of electricity monitoring <https://docs.openenergymonito
 
 Although the theoretical value calculated should be good enough for the measurements, I would recommend a calibration with a handheld ammeter on each channel.
 
-.. figure:: images/getting_starte/ammeter.png
+.. figure:: images/getting_started/ammeter.png
     :align: right
     :figwidth: 100px 
 
