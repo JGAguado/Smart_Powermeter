@@ -7,7 +7,7 @@
 [![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
 
 # Smart Powermeter
-The Smart Powermeter works as a shield for the TTGO T-Display allowing the measurement up to 6 CT clamps for reading electric current.
+The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 CT clamps for reading electric current and real-time display on an 2.9" e-paper display.
 
 <p float="left">
    <img src="./Documentation/Images/Top.png" width="49%">
