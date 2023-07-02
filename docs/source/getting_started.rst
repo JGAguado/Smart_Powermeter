@@ -70,9 +70,7 @@ wide number of ranges and with a 3.5 jack connector.
 When acquiring them it's important to take into account if it comes with a burden resistor or not, this can be checked on the engraved information on the clamp: 
 
  * If the clamp has a conversion from amps to amps (100A:50mA) it means it doesn't have any burden resistor.
- * If the clamp has a conversion from amps to voltage (50A:1V) it means that it has already a resistor. Since the Smart Powermeter has also burden resistors (22 Ohm), 
- the conversion rate engraved at the clamp is no more valid (as there would be two resistors in parallel, and the resultant resistance would be different). 
- In this case, you can desolder the SMD resistors or apply a calibration, which in any case is highly recommended.   
+ * If the clamp has a conversion from amps to voltage (50A:1V) it means that it has already a resistor. Since the Smart Powermeter has also burden resistors (22 Ohm), the conversion rate engraved at the clamp is no more valid (as there would be two resistors in parallel, and the resultant resistance would be different). In this case, you can desolder the SMD resistors or apply a calibration, which in any case is highly recommended.   
 
 .. figure:: images/getting_started/burden_resistor.png
     :align: center
