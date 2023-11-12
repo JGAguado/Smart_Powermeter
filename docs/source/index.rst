@@ -1,8 +1,9 @@
 Smart Powermeter
 ###############
-.. sidebar:: |Product|
 
-    .. image:: ../../Documentation/Images/Smart_Powermeter.png
+.. raw:: html
+        
+    <iframe src="_static/carousel.html" style="width: 100%; height: 300px; border: none;"></iframe>
 
 
 Welcome to the documentation page of the |Product|, an electronic board based on the ESP32 with 
