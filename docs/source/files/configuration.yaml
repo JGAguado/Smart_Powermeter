@@ -130,7 +130,7 @@ sensor:
 
 font:
   - file: "fonts/Audiowide.ttf"
-    id: font_title
+    id: my_font
     size: 20
 
 spi:
