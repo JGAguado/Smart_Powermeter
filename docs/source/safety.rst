@@ -1,4 +1,4 @@
-Safety guidelines
+🦺 Safety guidelines
 =================
 
 These safety guidelines, the operation instructions and the limit values listed in :doc:`specs` are to be read carefully before operating the product.
