@@ -27,6 +27,7 @@ api:
 # Enable Over The Air updates
 ota:
 
+
 #Public location of this yaml file
 dashboard_import:
   package_import_url: github://JGAguado/Smart_Powermeter/docs/source/files/configuration.yaml
@@ -99,7 +100,7 @@ sensor:
     filters:
       - calibrate_linear:
           - 0 -> 0
-          - 0.042 -> 2.72
+          - 0.042 -> 2.72 # Calibrate according to your measurements
    
   - platform: ct_clamp
     sensor: Input_2
@@ -110,7 +111,7 @@ sensor:
     filters:
       - calibrate_linear:
           - 0 -> 0
-          - 0.033 -> 1.07
+          - 0.033 -> 1.07 # Calibrate according to your measurements
    
   - platform: ct_clamp
     sensor: Input_3
@@ -121,7 +122,7 @@ sensor:
     filters:
       - calibrate_linear:
           - 0 -> 0
-          - 0.022 -> 0.66
+          - 0.022 -> 0.66 # Calibrate according to your measurements
     
   - platform: total_daily_energy
     name: "Total Daily Power"
@@ -131,7 +132,7 @@ sensor:
   - platform: template
     id: current_power
     name: "Measured Power"
-    lambda: return (id(Probe_1).state + id(Probe_2).state + id(Probe_3).state) * 230.0 / 1000; #Power = Current * Voltage 
+    lambda: return (id(Probe_1).state + id(Probe_2).state + id(Probe_3).state) * 230.0 / 1000; #Apparent power = Current * Voltage 
     unit_of_measurement: 'kW'
     update_interval: 5s
 
@@ -148,7 +149,7 @@ spi:
 
 image:
   - file: "images/Screenshot.png"
-    id: home_background
+    id: screenshot
 
 display:
   - platform: waveshare_epaper
@@ -156,18 +157,12 @@ display:
     dc_pin: GPIO13
     busy_pin: GPIO14
     reset_pin: GPIO15
+    rotation: 270
     model: 2.90inv2
+    id: my_display
     update_interval: 1min
-    pages:
+    full_update_every: 1
+    pages: 
       - id: page1
         lambda: |-
-          #define H_LEFT_MARGIN 4
-          #define H_RIGHT_MARGIN 280
-          #define H_CENTER 128 
-          #define V_WEATHER 0
-          #define V_CLOCK 1
-          #define V_WIFI 30
-          #define V_VOLTAGE 60
-          #define V_BATTERY  90
-          
-          it.image(0, 0, id(home_background));
+          it.image(0, 0, id(screenshot));

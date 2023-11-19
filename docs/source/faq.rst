@@ -1,15 +1,6 @@
 💬 :term:`FAQ`
 =============================
 
-After connecting everything and turning on the |Product|, the power :term:`LED` doesn't turn on, why?
-    The power :term:`LED` has a solderable jumper, this means that unless you applied some soldering lead on the pads it won't be enabled.
-    This is done for avoiding unnecesary standby :term:`LED`s powered on all the time.
-
-    However, if you soldered the jumper, the board is connected correctly and you cannot see the power :term:`LED` on, disconnect the power immediately.
-    Please check all the connections and measured with a multi-meter the resistance between 3V3 and :term:`gnd` in any port (:math:`I^2C` or Serial).
-    If the resistance is close to zero you have a short circuit somewhere in your board, please check your connections and any soldering you've made
-    If the problem persist reach :ref:`support`
-
 Can I upload ESPHome directly from the Home Assistance setup running on my Raspberry Pi?
     Yes you can, and actually this is one of the simplest and more effective way to upload ESPHome.
 
@@ -18,6 +9,20 @@ Can I upload firmware through the USB-C?
 
 Can I upload firmware through the Serial bus?
     Yes you can, however this is only recommended if you have troubles using the USB port and you are familiar with the procedure.
+
+The readings from the CT clamps are very noisy and doesn't make any sense.
+    Make sure the jack connectors are correctly plugged in. If the measurement is still noisy check other CT clamps in that same channel. 
+
+I have CT clamps that gives me the output in voltage instead of current (100A:1V), is it still compatible?
+    Yes, you just have to desolder the burden resistor close to the connector of the channel you want to use. 
+
+Am I getting the real power consumption?
+    Strictly talking no, you are getting the **aparent power**. The real (or true) power of a circuit, takes into account the phase (power factor). Since 
+    we are only monitoring the current, and assuming a constant voltage, we cannot take into account the offset between voltage-current, and 
+    therefore what we can compute is the aparent power. 
+    However, and unless you have powerfull inductive loads at home (powerfull motors), the power factor will be close to the unity, making very close
+    the measurement of the apparent power to the real power.
+    If you want to understand more about the differences between True, Apparent and Reactive power have a look at this `article <https://www.allaboutcircuits.com/textbook/alternating-current/chpt-11/true-reactive-and-apparent-power/>`_ 
 
 I want to use the :term:`IIC` port for expanding the possibilities, how can I do it?
     Once you have located the sensor that you want to connect to the :term:`IIC` port, check that is compatible with the 3.3V power supply from the |Product|. 

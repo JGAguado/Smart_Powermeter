@@ -9,7 +9,7 @@ project = 'Smart Powermeter'
 author = 'J.G.Aguado'
 email = 'jon-garcia@hotmail.com'
 
-release = 'R1'
+release = 'R2'
 version = 'V2'
 
 today = date.today()
@@ -21,9 +21,9 @@ rst_epilog  = """
 .. |Product| replace:: %s
 .. |Author| replace:: %s
 .. |Email| replace:: %s
-.. |Release| replace:: %s
+.. |Version| replace:: %s%s
 .. |Date| replace:: %s
-""" % (project, author, email, release, compile_date)
+""" % (project, author, email, version, release, compile_date)
 
 
 # -- General configuration
