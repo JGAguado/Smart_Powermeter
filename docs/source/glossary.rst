@@ -1,4 +1,8 @@
-.. glossary::
+📚 Acronyms
+============
+
+.. glossary:: 
+   :sorted:
 
    IC
        Integrated Circuit
