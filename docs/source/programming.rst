@@ -38,7 +38,63 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
     :align: center
     :figwidth: 400px
 
-4. Open the recently created file and replace the content with the example configuration:
+4. Open the recently created file and replace the content with the example configuration, with all the dependencies:
+
+| esphome
+| ├── fonts
+| │   └── materialdesignicons-webfont_5.9.55.ttf
+| ├── libraries
+| │   └── icon-map.h
+| ├── libraries
+| │   └── Gauge.png
+| │   └── Gauge_1.png
+| └── smart-plant.yaml
+| 
+| 
+    
+
+In the folder structure above:
+
+``materialdesignicons-webfont_5.9.55.ttf`` 
+    As with the previous file, this is a file containing a set of the icons fonts (the battery voltage level). 
+    
+    In this case I used :term:`MDI` from `google <https://github.com/google/material-design-icons/blob/master/font/MaterialIcons-Regular.ttf>`_
+    (version 5.9.55), but shouldn't be any problem to look for the latest. 
+
+``icon-map.h`` 
+    This *mapping* file is used to associate a variable name with the *icon ID* from the previous file. It contains the following code:
+  
+.. code-block:: C
+   :linenos:
+
+   #include <map>
+   std::map<int, std::string> battery_icon_map
+   {
+    {0, "\U000F10CD"},
+    {1, "\U000F007A"},
+    {2, "\U000F007B"},
+    {3, "\U000F007C"},
+    {4, "\U000F007D"},
+    {5, "\U000F007E"},
+    {6, "\U000F007F"},
+    {7, "\U000F0080"},
+    {8, "\U000F0081"},
+    {9, "\U000F0082"},
+    {10, "\U000F0079"},
+   };
+
+
+``Gauge.png`` and ``Gauge.png``
+    This are some customized gauges to be plotted as part of the background.
+
+    .. image:: images/getting_started/Gauge.png
+        :width: 30%    
+    .. image:: images/getting_started/Gauge_1.png
+        :width: 30%
+
+``smart-powermeter.yaml``
+    This is the YAML configuration file, the most important file that configures your ESPHome-based |Porduct|:
+
 
 .. Note:: You might need to keep the encription keys *OTA* and *API*
 
