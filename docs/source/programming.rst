@@ -1,7 +1,9 @@
 💻 Programming
 ===============
 
+
 There are two main programming methods supported and tested with the |Product|: 
+
  * ESPHome
  * Arduino
 

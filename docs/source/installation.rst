@@ -1,6 +1,9 @@
 🛠️ Installation
 ===============
 
+Deployment
+-----------
+
 .. Danger::
     The installation of the Smart Powermeter should only be carried by people with **good knowledge about high-voltage electric installations** 
     and familiarized with the procedure that involves installing ct-clamps around main voltages.
@@ -32,6 +35,7 @@ In general lines, calibration procedure consists on the basic points:
 
 1. Instrument with an external ammeter the same power line you are measuring with your CT-clamp.
 2. Measure at multiple currents, for that turn on different loads consumming differently.
+
 .. figure:: images/getting_started/calibration.jpg
     :align: center
     :figwidth: 100px 
@@ -47,16 +51,19 @@ In general lines, calibration procedure consists on the basic points:
 
 4. Verify that the calibrated measurement matches with what the ammeter displays. Test different loads again.
 
+.. figure:: images/getting_started/Screenshot.jpg
+    :align: center
+    :figwidth: 100px 
+    
+    HA App screencapture of testing loads on the different phases.
+
 Home Assistant setup
 --------------------
 
 After the device is installed and calibrated, make sure you add the computed power parameter as part of the grid consumption.
 
-.. figure:: images/getting_started/ha.png
-    :align: left
-    :figheight: 100px 
+.. image:: images/getting_started/ha.png
+    :width: 30%
 
-
-.. figure:: images/getting_started/Screenshot_1.png
-    :align: right
-    :figheight: 100px 
+.. image:: images/getting_started/Screenshot_1.png
+    :width: 69%

@@ -51,8 +51,8 @@ please contact me directly:
    :hidden:
 
    safety   
+   details
    getting_started
-   programming
    design   
    glossary
    faq 
