@@ -38,7 +38,12 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
     :align: center
     :figwidth: 400px
 
-4. Open the recently created file and replace the content with the example configuration, with all the dependencies:
+4. Open the recently created file and replace the content with the example configuration. With all the dependencies, the working tree would look like:
+
+.. Tip::
+    A very easy way to upload and copy files (code or even images) into your ESPHome folder hosted in your HA instance is 
+    with the help of the Visual Studio Code integration for HA. This way you can just drag and drop the files over the folder 
+    on the Home Assistant’s Visual Studio Code navigation panel on your left.
 
 | esphome
 | ├── fonts
@@ -48,7 +53,7 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
 | ├── libraries
 | │   └── Gauge.png
 | │   └── Gauge_1.png
-| └── smart-plant.yaml
+| └── smart-powermeter.yaml
 | 
 | 
     
