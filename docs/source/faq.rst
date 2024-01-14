@@ -16,12 +16,11 @@ The readings from the CT clamps are very noisy and doesn't make any sense.
 I have CT clamps that gives me the output in voltage instead of current (100A:1V), is it still compatible?
     Yes, you just have to desolder the burden resistor close to the connector of the channel you want to use. 
 
-Am I getting the real power consumption?
-    Strictly talking no, you are getting the **aparent power**. The real (or true) power of a circuit, takes into account the phase (power factor). Since 
-    we are only monitoring the current, and assuming a constant voltage, we cannot take into account the offset between voltage-current, and 
-    therefore what we can compute is the aparent power. 
-    However, and unless you have powerfull inductive loads at home (powerfull motors), the power factor will be close to the unity, making very close
-    the measurement of the apparent power to the real power.
+Am I obtaining the accurate measure of power consumption?
+    Strictly speaking, no; what you're obtaining is the **apparent** power. The real or true power of a circuit considers the phase (power factor). 
+    As we are solely monitoring the current and assuming a constant voltage, we cannot factor in the phase shift between voltage and current. 
+    Consequently, what we can calculate is the apparent power. Nevertheless, unless you have robust inductive loads at home, such as powerful motors, 
+    the power factor tends to be close to unity, resulting in a very close alignment between the measurement of apparent power and real power.
     If you want to understand more about the differences between True, Apparent and Reactive power have a look at this `article <https://www.allaboutcircuits.com/textbook/alternating-current/chpt-11/true-reactive-and-apparent-power/>`_ 
 
 I want to use the :term:`IIC` port for expanding the possibilities, how can I do it?

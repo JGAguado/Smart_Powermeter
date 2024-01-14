@@ -47,7 +47,7 @@ please contact me directly:
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
 
    safety   
