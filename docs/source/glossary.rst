@@ -34,6 +34,9 @@
    FAQ
        Frequently Answered Questions
 
+   FPC
+       Flexible Printed Circuit
+
    LDR
        Light Dependant Resistor
 

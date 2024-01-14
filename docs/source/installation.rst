@@ -12,7 +12,13 @@ After the board has been programmed physically, at least once, it should be read
 the |Product| can be deployed and installed on it's final place, like an electric cabinet:
 
 1. Locate an empty space on the DIN rail where you can install the enclosed |Product| and mount it.
-2. Plug the CT-clamps into the |Product| through the jack connectors.
+2. Plug the CT-clamps into the |Product| through the jack connectors. Don't introduce them completelly, leave around 5mm between the edges.
+
+.. figure:: images/getting_started/clamps_details.jpg
+    :align: center
+    :figwidth: 300px 
+    
+
 3. Open the CT-clamps and close them around the power line you want to measure.
 
 .. Caution:: 
@@ -21,6 +27,9 @@ the |Product| can be deployed and installed on it's final place, like an electri
 
 4. Power the |Product| out of any surrounding power lines. **Before connecting anything make sure it is not powered**.
 
+.. figure:: images/getting_started/cabinet.jpg
+    :align: center
+    :figwidth: 300px 
 
 Calibration
 ------------

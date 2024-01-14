@@ -68,11 +68,11 @@ different than with any other ESP32 devices:
 
 .. parsed-literal::
 
-    https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+    https://dl.espressif.com/dl/package_esp32_index.json
 
 3. Close the preferences and open in the menu Tools -> Board -> Boards Manager.
 4. Search for *esp32* and install it. This might take some time.
-5. Now you can select the board *ESP32-S2 Dev Module* as the target board. Leave the rest of parameters 
+5. Now you can select the board *ESP32S2 Dev Module* as the target board. Leave the rest of parameters 
    by default.
 6. Select the correct port and remember to enter the board into flashing mode before uploading the sketch.
 
