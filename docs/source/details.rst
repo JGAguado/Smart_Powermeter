@@ -13,13 +13,6 @@ switching power supply module, ready to receive 100-220V AC and deliver 5V DC th
 
 The board is designed to be powered directly through the screw terminal block. Before plugging the wires in, make sure they have no power.
 
-.. Danger::
-    The installation of the Smart Powermeter should only be carried by people with **good knowledge about high-voltage electric installations** 
-    and familiarized with the procedure that involves installing ct-clamps around main voltages.
-
-.. Danger::
-    If your are using the AC power **never touch the board while is powered**. 
-
 Input
 -----------
 The |Product| supports up to 6 independent *analog inputs* ready to read CT clamps (or probes):
