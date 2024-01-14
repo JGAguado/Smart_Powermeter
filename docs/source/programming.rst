@@ -39,6 +39,7 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
     :figwidth: 400px
 
 4. Open the recently created file and replace the content with the example configuration:
+
 .. Note:: You might need to keep the encription keys *OTA* and *API*
 
 .. literalinclude:: files/configuration.yaml

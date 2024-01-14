@@ -38,7 +38,7 @@ In general lines, calibration procedure consists on the basic points:
 
 .. figure:: images/getting_started/calibration.jpg
     :align: center
-    :figwidth: 100px 
+    :figwidth: 300px 
     
 3. Apply the coefficients. On ESPHome this is done by entering the multiple measurement points into a filter *calibrate_linear*, like this:
 
@@ -53,7 +53,7 @@ In general lines, calibration procedure consists on the basic points:
 
 .. figure:: images/getting_started/Screenshot.jpg
     :align: center
-    :figwidth: 100px 
+    :figwidth: 300px 
     
     HA App screencapture of testing loads on the different phases.
 
