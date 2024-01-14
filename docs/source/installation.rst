@@ -12,7 +12,7 @@ After the board has been programmed physically, at least once, it should be read
 the |Product| can be deployed and installed on it's final place, like an electric cabinet:
 
 1. Locate an empty space on the DIN rail where you can install the enclosed |Product| and mount it.
-2. Plug the CT-clamps into the |Product| through the jack connectors. Don't introduce them completelly, leave around 5mm between the edges.
+2. Plug the CT-clamps into the |Product| through the jack connectors. Don't introduce them completelly, leave a few millimeters.
 
 .. figure:: images/getting_started/clamps_details.jpg
     :align: center

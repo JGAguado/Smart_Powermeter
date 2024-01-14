@@ -12,6 +12,8 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
+  includes:
+    - libraries/icon-map.h
 
 esp32:
   board: esp32-s2-saola-1
@@ -46,24 +48,11 @@ wifi:
     ssid: "${ap_ssid}"
     password: "${ap_pwd}"
 
-
-i2c:
-  scl: GPIO34
-  sda: GPIO33
-  scan: true
-  id: bus_a
-
 time:
   - platform: homeassistant
     id: esptime
 
-sensor:
-  - platform: homeassistant
-    id: daily_cost
-    name: "Daily cost"
-    entity_id: sensor.total_daily_power_cost
-
-    
+sensor:    
   - platform: adc
     pin: GPIO1
     id: Input_1
@@ -81,7 +70,7 @@ sensor:
     id: Input_3
     attenuation: 11db
     update_interval: 1s
-   
+    
   - platform: ct_clamp
     sensor: Input_1
     id: Probe_1
@@ -91,8 +80,8 @@ sensor:
     filters:
       - calibrate_linear:
           - 0 -> 0
-          - 0.042 -> 2.72 # Calibrate according to your measurements
-   
+          - 0.042 -> 2.72
+    
   - platform: ct_clamp
     sensor: Input_2
     name: "Probe 2"
@@ -102,8 +91,8 @@ sensor:
     filters:
       - calibrate_linear:
           - 0 -> 0
-          - 0.033 -> 1.07 # Calibrate according to your measurements
-   
+          - 0.033 -> 1.07
+    
   - platform: ct_clamp
     sensor: Input_3
     name: "Probe 3"
@@ -113,7 +102,7 @@ sensor:
     filters:
       - calibrate_linear:
           - 0 -> 0
-          - 0.022 -> 0.66 # Calibrate according to your measurements
+          - 0.022 -> 0.66
     
   - platform: total_daily_energy
     name: "Total Daily Power"
@@ -123,20 +112,68 @@ sensor:
   - platform: template
     id: current_power
     name: "Measured Power"
-    lambda: return (id(Probe_1).state + id(Probe_2).state + id(Probe_3).state) * 230.0 / 1000; #Apparent power = Current * Voltage 
+    lambda: return (id(Probe_1).state + id(Probe_2).state + id(Probe_3).state) * 230.0 / 1000; #Power = Current * Voltage 
     unit_of_measurement: 'kW'
     update_interval: 5s
 
+  # WiFi Signal     
+  - platform: wifi_signal
+    name: "WiFi Signal Sensor"
+    id: wifisignal
+    update_interval: 20s
+
+  # Homeassistant data
+  - platform: homeassistant
+    id: cost
+    entity_id: sensor.smart_powermeter_total_daily_power_cost
 
 font:
-  - file: "fonts/Audiowide.ttf"
-    id: my_font
-    size: 20
+  - file: "gfonts://Audiowide"
+    id: font_header
+    size: 15
+  - file: "gfonts://Audiowide"
+    id: font_gauge
+    size: 15
+  - file: "gfonts://Audiowide"
+    id: font_text
+    size: 15
+  - file: 'fonts/materialdesignicons-webfont_5.9.55.ttf'
+    id: font_icon
+    size: 18
+    glyphs:
+      - "\U000F092D" # wifi-off
+      - "\U000F092B" # wifi-strength-0
+      - "\U000F091F" # wifi-strength-1
+      - "\U000F0922" # wifi-strength-2
+      - "\U000F0925" # wifi-strength-3
+      - "\U000F0928" # wifi-strength-4
 
 spi:
   clk_pin: GPIO12
-  mosi_pin: GPIO11 
+  mosi_pin: GPIO11  # Works on the e-paper
 
+image:
+  - file: "images/Gauge.png"
+    id: gauge
+
+  - file: "images/Gauge_1.png"
+    id: gauge_1  
+
+  - file: mdi:home-lightning-bolt
+    id: power
+    resize: 18x18
+    
+  - file: mdi:cash-multiple
+    id: cash
+    resize: 18x18
+
+  - file: mdi:currency-eur
+    id: euro
+    resize: 18x18
+
+  - file: mdi:lightning-bolt
+    id: bolt
+    resize: 22x22
 
 display:
   - platform: waveshare_epaper
@@ -144,12 +181,323 @@ display:
     dc_pin: GPIO13
     busy_pin: GPIO14
     reset_pin: GPIO15
+    model: 2.90inv2    
     rotation: 270
-    model: 2.90inv2
-    id: my_display
     update_interval: 1min
     full_update_every: 1
-    pages: 
+    pages:
       - id: page1
         lambda: |-
-          it.print(0, 10, id(my_font), "Hello World!");
+          #define H_LEFT_MARGIN 4
+          #define H_RIGHT_MARGIN 280
+          #define H_CENTER 128 
+          #define V_WEATHER 0
+          #define V_CLOCK 1
+          #define V_WIFI 30
+          #define V_VOLTAGE 60
+          #define V_BATTERY  90
+          
+          // WiFi quality
+          // it.image(0, 0, id(background));
+
+          // Time
+          int x_head = 260;
+          int y_head = 2;
+          it.strftime(x_head, y_head, id(font_header), TextAlign::TOP_RIGHT, 
+          "%H:%M", id(esptime).now());     
+
+          // WiFi quality
+          if(id(wifisignal).has_state ()) {
+            if (id(wifisignal).state >= -50) {
+                // Excellent # mdi-wifi-strength-4 "\U000F0928" 255, 230
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[4].c_str());
+            } else if (id(wifisignal).state  >= -60) {
+                //Good # mdi-wifi-strength-3 "\U000F0925"
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[3].c_str());
+            } else if (id(wifisignal).state  >= -67) {
+                //Fair # mdi-wifi-strength-2 "\U000F0922"
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[2].c_str());
+            } else if (id(wifisignal).state  >= -70) {
+                //Weak # mdi-wifi-strength-1 "\U000F091F"
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[1].c_str());
+            } else {
+                //Unlikely working signal # mdi-wifi-strength-alert-outline "\U000F092B"
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[0].c_str());
+            }
+          }
+
+          // Gauges
+          // General parameters
+          float pi = 3.141592653589793;
+          float alpha = 4.71238898038469; // Defined as the gauge angle in radians (270deg)
+          float beta = 2*pi - alpha;
+          int radius = 25;              // Radius of the gauge in pixels
+          int thick = 7;                // Size of the marker 
+          
+          // Probe 1
+          int min_range = 0; 
+          int max_range = 10;
+          int xc = 40;
+          int yc = 33;
+
+          it.image(xc-radius, yc-radius, id(gauge));
+          
+          float measured = id(Probe_1).state;
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          float val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          int x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          int y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          int x1 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
+          int y1 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
+          int x2 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
+          int y2 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          it.line(x0, y0, x1, y1);
+          it.line(x1, y1, x2, y2);
+          it.line(x2, y2, x0, y0);
+          
+
+          it.printf(xc, yc, id(font_gauge), TextAlign::CENTER, 
+          "1");  
+          it.printf(xc, yc + radius*0.75, id(font_gauge), TextAlign::TOP_CENTER, 
+          "%.1fA", measured);  
+          
+          // Probe 2
+          min_range = 0; 
+          max_range = 10;
+          xc = 100;
+          yc = 33;
+
+          it.image(xc-radius, yc-radius, id(gauge));
+
+          
+          measured = id(Probe_2).state;
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          it.line(x0, y0, x1, y1);
+          it.line(x1, y1, x2, y2);
+          it.line(x2, y2, x0, y0);
+          
+
+          it.printf(xc, yc, id(font_gauge), TextAlign::CENTER, 
+          "2");  
+          it.printf(xc, yc  + radius*0.75, id(font_gauge), TextAlign::TOP_CENTER, 
+          "%.1fA", measured);  
+          
+          // Probe 3
+          min_range = 0; 
+          max_range = 10;
+          xc = 160;
+          yc = 33;
+
+          it.image(xc-radius, yc-radius, id(gauge));
+
+          
+          measured = id(Probe_3).state;
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          it.line(x0, y0, x1, y1);
+          it.line(x1, y1, x2, y2);
+          it.line(x2, y2, x0, y0);
+          
+
+          it.printf(xc, yc, id(font_gauge), TextAlign::CENTER, 
+          "3");  
+          it.printf(xc, yc  + radius*0.75, id(font_gauge), TextAlign::TOP_CENTER, 
+          "%.1fA", measured);  
+
+          // Probe 4
+          min_range = 0; 
+          max_range = 10;
+          xc = 40;
+          yc = 95;
+
+          it.image(xc-radius, yc-radius, id(gauge));
+
+          
+          measured = id(Probe_4).state;
+
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          it.line(x0, y0, x1, y1);
+          it.line(x1, y1, x2, y2);
+          it.line(x2, y2, x0, y0);
+          
+
+          it.printf(xc, yc, id(font_gauge), TextAlign::CENTER, 
+          "4");  
+          it.printf(xc, yc  + radius*0.75, id(font_gauge), TextAlign::TOP_CENTER, 
+          "%.1fA", measured);  
+
+          // Probe 5
+          min_range = 0; 
+          max_range = 10;
+          xc = 100;
+          yc = 95;
+
+          it.image(xc-radius, yc-radius, id(gauge));
+
+          
+          measured = id(Probe_5).state;
+
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          it.line(x0, y0, x1, y1);
+          it.line(x1, y1, x2, y2);
+          it.line(x2, y2, x0, y0);
+          
+
+          it.printf(xc, yc, id(font_gauge), TextAlign::CENTER, 
+          "5");  
+          it.printf(xc, yc  + radius*0.75, id(font_gauge), TextAlign::TOP_CENTER, 
+          "%.1fA", measured);  
+
+          // Probe 6
+          min_range = 0; 
+          max_range = 10;
+          xc = 160;
+          yc = 95;
+
+          it.image(xc-radius, yc-radius, id(gauge));
+
+          
+          measured = id(Probe_6).state;
+
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          it.line(x0, y0, x1, y1);
+          it.line(x1, y1, x2, y2);
+          it.line(x2, y2, x0, y0);
+          
+
+          it.printf(xc, yc, id(font_gauge), TextAlign::CENTER, 
+          "6");  
+          it.printf(xc, yc  + radius*0.75, id(font_gauge), TextAlign::TOP_CENTER, 
+          "%.1fA", measured);  
+
+
+          // Total parameters
+          // Power gauge
+          alpha = pi; // Defined as the gauge angle in radians (270deg)
+          beta = 2*pi - alpha;
+          radius = 40;              // Radius of the gauge in pixels
+          thick = 7;    
+
+          min_range = 0; 
+          max_range = 5;
+          xc = 245;
+          yc = 65;
+
+          it.image(xc-radius, yc-radius, id(gauge_1));
+          
+          measured = id(current_power).state;
+          
+          if (measured < min_range) {
+            measured = min_range;
+          } 
+          if (measured > max_range) {
+            measured = max_range;
+          } 
+          
+          val = (measured - min_range) / abs(max_range - min_range) * alpha;        
+          x0 = static_cast<int>(xc + radius * cos(pi / 2 + beta / 2 + val));
+          y0 = static_cast<int>(yc + radius * sin(pi / 2 + beta / 2 + val));
+          x1 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val + 0.1));
+          y1 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val + 0.1));
+          x2 = static_cast<int>(xc + (radius+thick) * cos(pi / 2 + beta / 2 + val - 0.1));
+          y2 = static_cast<int>(yc + (radius+thick) * sin(pi / 2 + beta / 2 + val - 0.1));
+          it.line(x0, y0, x1, y1);
+          it.line(x1, y1, x2, y2);
+          it.line(x2, y2, x0, y0);
+          
+
+          it.image(xc-11, yc-22, id(bolt));   
+
+          it.printf(xc, yc + radius/2, id(font_gauge), TextAlign::BOTTOM_CENTER, 
+          "%.1fkW", measured);  
+          // it.printf(xc, yc + radius/2, id(font_gauge), TextAlign::TOP_CENTER, 
+          // "kW");  
+
+          // Derivated parameters:
+          measured = id(daily_power).state;
+          it.printf(290, 85, id(font_gauge), TextAlign::TOP_RIGHT, 
+          "%.0fkWh", measured);  
+          it.image(200, 85, id(power));    
+
+          measured = id(cost).state;
+          it.image(200, 105, id(cash));          
+          
+          it.printf(275, 105, id(font_gauge), TextAlign::TOP_RIGHT, 
+          "%.2f", measured);  
+          it.image(275, 105, id(euro));
