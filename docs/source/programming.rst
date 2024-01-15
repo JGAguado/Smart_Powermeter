@@ -93,9 +93,9 @@ In the folder structure above:
     This are some customized gauges to be plotted as part of the background.
 
     .. image:: images/getting_started/Gauge.png
-        :width: 30%    
+        :width: 40px   
     .. image:: images/getting_started/Gauge_1.png
-        :width: 30%
+        :width: 80px
 
 ``smart-powermeter.yaml``
     This is the YAML configuration file, the most important file that configures your ESPHome-based |Porduct|:
