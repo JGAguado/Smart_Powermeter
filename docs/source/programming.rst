@@ -50,7 +50,7 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
 | │   └── materialdesignicons-webfont_5.9.55.ttf
 | ├── libraries
 | │   └── icon-map.h
-| ├── libraries
+| ├── images
 | │   └── Gauge.png
 | │   └── Gauge_1.png
 | └── smart-powermeter.yaml
@@ -63,8 +63,8 @@ In the folder structure above:
 ``materialdesignicons-webfont_5.9.55.ttf`` 
     As with the previous file, this is a file containing a set of the icons fonts (the battery voltage level). 
     
-    In this case I used :term:`MDI` from `google <https://github.com/google/material-design-icons/blob/master/font/MaterialIcons-Regular.ttf>`_
-    (version 5.9.55), but shouldn't be any problem to look for the latest. 
+    In this case I used the :term:`MDI` version :download:`5.9.55 <files/materialdesignicons-webfont_5.9.55.ttf>`, 
+    but shouldn't be any problem to look for the latest from `google <https://github.com/google/material-design-icons/blob/master/font/MaterialIcons-Regular.ttf>`_. 
 
 ``icon-map.h`` 
     This *mapping* file is used to associate a variable name with the *icon ID* from the previous file. It contains the following code:
