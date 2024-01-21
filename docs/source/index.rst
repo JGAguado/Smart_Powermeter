@@ -21,11 +21,11 @@ Contents
 :doc:`safety`
     How to operate and manipulate the |Product|.
 
+:doc:`details`
+    A deeper explanation on the systems of the |Product|.
+
 :doc:`getting_started`
     First steps for configuring and working with the |Product|.
-
-:doc:`programming`
-    Example firmware files for the |Product|.
 
 :doc:`design`
     Design files of the |Product|.
