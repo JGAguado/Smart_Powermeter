@@ -38,32 +38,64 @@ The |Product| supports up to 6 independent *analog inputs* ready to read CT clam
     * - 06
       - Probe 5
 
-Regarding the kind of CT-clamps, I recommend the SCT-013-000 series, comming in a 
-wide number of ranges and with a 3.5 jack connector. 
+Regarding the kind of CT-clamps, I recommend the SCT-013 series, comming in a wide number of ranges and with a 3.5 jack connector:
 
 .. figure:: images/getting_started/CT.png
-    :align: center
-    :figwidth: 400px
+    :align: right
+    :figwidth: 200px
 
 
 .. figure:: images/getting_started/amps_to_amps.png
     :align: right
     :figwidth: 200px 
-    
-    
-When acquiring them it's important to take into account if it comes with a burden resistor or not, this can be checked on the engraved information on the clamp: 
 
- * If the clamp has a conversion from amps to amps (100A:50mA) it means it doesn't have any burden resistor. The 100A:50mA ratio, is the actually one suggested by default, but make sure it fits your current measurement needs.
- * If the clamp has a conversion from amps to voltage (50A:1V) it means that it has already a resistor. Since the Smart Powermeter has also burden resistors (22 Ohm), the conversion rate engraved at the clamp is no more valid (as there would be two resistors in parallel, and the resultant resistance would be different). In this case, you can desolder the SMD resistors or apply a calibration, which in any case is highly recommended.   
 
-.. figure:: images/getting_started/burden_resistor.png
+.. list-table:: 
+    :widths: 50 50
+    :header-rows: 1
+
+    * - Model
+      - Ratio
+    * - SCT-013-000
+      - 100A:50mA
+    * - SCT-013-005
+      - 5A:1V
+    * - SCT-013-010
+      - 10A:1V
+    * - SCT-013-015
+      - 15A:1V
+    * - SCT-013-020
+      - 20A:1V
+    * - SCT-013-025
+      - 25A:1V
+    * - SCT-013-030
+      - 30A:1V
+    * - SCT-013-050
+      - 50A:1V
+    * - SCT-013-060
+      - 6A:1V
+    * - SCT-013-000V
+      - 100A:1V
+
+
+When selecting a CT clamp, it is crucial to consider the anticipated measurement range. This ensures accurate measurements and prevents 
+exceeding the ESP32's maximum reading range.
+
+.. Note:: 
+  The default CT clamp in the set is the SCT-013-000, which has the highest range in the series. However, for measurements below 3A, it may not provide the desired level of quality.
+
+Each channel incorporates a simple internal circuit that adjusts the induced voltage from the CT clamp (proportional to the measured current) 
+to prepare the signal for reading by the :term:`ADC` of the microcontroller. For more details on the circuit, refer to this 
+`guide <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_.
+
+.. figure:: images/getting_started/Figure_1.png
     :align: center
     :figwidth: 300px
-  
 
-On each channel, there is internally a very simple circuit that adapts the induced voltage on the CT clamp (proportional to the current measured)
-and makes the signal ready to be read by the :term:`ADC` of the microcontroller, you can get to know more about the `circuit behind <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_  
-in this excelent `guide of electricity monitoring <https://docs.openenergymonitor.org/electricity-monitoring/index.html>`_ 
+In general, except for the SCT-013-000, the induced voltage can be read by the conditioning circuit mentioned earlier. 
+However, if the CT clamp output is also a current, a burden resistor is necessary. The |Product| includes a **22 Ohm** resistor for 
+convenience, making it easier to desolder if not needed, as explained in the :ref:`desoldering` section.
+
 
 Communications
 -----------

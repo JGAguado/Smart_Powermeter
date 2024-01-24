@@ -22,6 +22,17 @@ The |Product| comes as a set consisting on a :term:`SMD` pre-soldered board to w
 The soldering of these two components is quite fast, just make sure not to bend any of the power supply module pins. If you have never soldered or you want to improve your soldering techniques I recommend you 
 the `Adafruit Guide To Excellent Soldering <https://learn.adafruit.com/adafruit-guide-excellent-soldering>`_
 
+.. _desoldering:
+
+Desoldering
+------------
+If you ever need to desolder any burdern resistor, for instance, when opting for a different CT clamp on that channel, simply apply heat and remove it carefully.
+
+.. figure:: images/getting_started/burden_resistor.png
+    :align: center
+    :figwidth: 300px
+
+
 Assembly
 --------
 Once the board is fully soldered, it's time to mount the e-paper display (in case you are using this accessory to display real-time information):
