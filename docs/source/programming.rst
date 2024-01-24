@@ -46,8 +46,6 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
     on the Home Assistant’s Visual Studio Code navigation panel on your left.
 
 | esphome
-| ├── fonts
-| │   └── materialdesignicons-webfont_5.9.55.ttf
 | ├── libraries
 | │   └── icon-map.h
 | ├── images
@@ -59,13 +57,6 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
     
 
 In the folder structure above:
-
-``materialdesignicons-webfont_5.9.55.ttf`` 
-    As with the previous file, this is a file containing a set of the icons fonts (the battery voltage level). 
-    
-    In this case I used the :term:`MDI` version :download:`5.9.55 <files/materialdesignicons-webfont_5.9.55.ttf>`, 
-    but shouldn't be any problem to look for the latest from `google <https://github.com/google/material-design-icons/blob/master/font/MaterialIcons-Regular.ttf>`_. 
-
 ``icon-map.h`` 
     This *mapping* file is used to associate a variable name with the *icon ID* from the previous file. It contains the following code:
   
