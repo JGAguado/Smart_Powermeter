@@ -137,16 +137,15 @@ font:
   - file: "gfonts://Audiowide"
     id: font_text
     size: 15
-  - file: 'fonts/materialdesignicons-webfont_5.9.55.ttf'
+  - file: 'gfonts://Material+Symbols+Outlined'
     id: font_icon
     size: 18
     glyphs:
-      - "\U000F092D" # wifi-off
-      - "\U000F092B" # wifi-strength-0
-      - "\U000F091F" # wifi-strength-1
-      - "\U000F0922" # wifi-strength-2
-      - "\U000F0925" # wifi-strength-3
-      - "\U000F0928" # wifi-strength-4
+      - "\U000f0b0" # wifi-strength-0
+      - "\U000ebe4" # wifi-strength-1
+      - "\U000ebd6" # wifi-strength-2
+      - "\U000ebe1" # wifi-strength-3
+      - "\U000e1d8" # wifi-strength-4
 
 spi:
   clk_pin: GPIO12
@@ -209,19 +208,19 @@ display:
           // WiFi quality
           if(id(wifisignal).has_state ()) {
             if (id(wifisignal).state >= -50) {
-                // Excellent # mdi-wifi-strength-4 "\U000F0928" 255, 230
+                // Excellent # mdi-wifi-strength-4 
                 it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[4].c_str());
             } else if (id(wifisignal).state  >= -60) {
-                //Good # mdi-wifi-strength-3 "\U000F0925"
+                //Good # mdi-wifi-strength-3 
                 it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[3].c_str());
             } else if (id(wifisignal).state  >= -67) {
-                //Fair # mdi-wifi-strength-2 "\U000F0922"
+                //Fair # mdi-wifi-strength-2 
                 it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[2].c_str());
             } else if (id(wifisignal).state  >= -70) {
-                //Weak # mdi-wifi-strength-1 "\U000F091F"
+                //Weak # mdi-wifi-strength-1 
                 it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[1].c_str());
             } else {
-                //Unlikely working signal # mdi-wifi-strength-alert-outline "\U000F092B"
+                //Unlikely working mdi-wifi-strength-0
                 it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[0].c_str());
             }
           }
