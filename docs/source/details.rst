@@ -42,7 +42,7 @@ Regarding the kind of CT-clamps, I recommend the SCT-013 series, comming in a wi
 
 .. figure:: images/getting_started/CT.png
     :align: right
-    :figwidth: 200px
+    :figwidth: 300px
 
 
 .. figure:: images/getting_started/amps_to_amps.png
@@ -82,15 +82,16 @@ When selecting a CT clamp, it is crucial to consider the anticipated measurement
 exceeding the ESP32's maximum reading range.
 
 .. Note:: 
-  The default CT clamp in the set is the SCT-013-000, which has the highest range in the series. However, for measurements below 3A, it may not provide the desired level of quality.
+  The default CT clamp in the set is the SCT-013-000, which has the highest range in the series. However, for measurements al low power <10W, it may not provide the desired level of quality.
 
 Each channel incorporates a simple internal circuit that adjusts the induced voltage from the CT clamp (proportional to the measured current) 
 to prepare the signal for reading by the :term:`ADC` of the microcontroller. For more details on the circuit, refer to this 
 `guide <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_.
 
-.. figure:: images/getting_started/Figure_1.png
-    :align: center
-    :figwidth: 300px
+.. image:: images/getting_started/Figure_1.png
+    :width: 75%
+    
+    Example of the current to monitor (blue), the output from an SCT-013-000 (orange) and the input to the ESP32's ADC (green).
 
 In general, except for the SCT-013-000, the induced voltage can be read by the conditioning circuit mentioned earlier. 
 However, if the CT clamp output is also a current, a burden resistor is necessary. The |Product| includes a **22 Ohm** resistor for 
