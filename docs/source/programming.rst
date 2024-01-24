@@ -73,7 +73,7 @@ In the folder structure above:
    :linenos:
 
    #include <map>
-   std::map<int, std::string> battery_icon_map
+   std::map<int, std::string> wifi_icon_map
    {
     {0, "\U000f0b0"},
     {1, "\U000ebe4"},
