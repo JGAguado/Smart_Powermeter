@@ -91,7 +91,6 @@ to prepare the signal for reading by the :term:`ADC` of the microcontroller. For
 .. image:: images/getting_started/Figure_1.png
     :width: 75%
     
-    Example of the current to monitor (blue), the output from an SCT-013-000 (orange) and the input to the ESP32's ADC (green).
 
 In general, except for the SCT-013-000, the induced voltage can be read by the conditioning circuit mentioned earlier. 
 However, if the CT clamp output is also a current, a burden resistor is necessary. The |Product| includes a **22 Ohm** resistor for 
