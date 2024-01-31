@@ -141,11 +141,11 @@ font:
     id: font_icon
     size: 18
     glyphs:
-      - "\U000f0b0" # wifi-strength-0
-      - "\U000ebe4" # wifi-strength-1
-      - "\U000ebd6" # wifi-strength-2
-      - "\U000ebe1" # wifi-strength-3
-      - "\U000e1d8" # wifi-strength-4
+      - "\U0000f0b0" # wifi-strength-0
+      - "\U0000ebe4" # wifi-strength-1
+      - "\U0000ebd6" # wifi-strength-2
+      - "\U0000ebe1" # wifi-strength-3
+      - "\U0000e1d8" # wifi-strength-4
 
 spi:
   clk_pin: GPIO12
