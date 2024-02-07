@@ -71,6 +71,24 @@ sensor:
     attenuation: 11db
     update_interval: 1s
     
+  - platform: adc
+    pin: GPIO4
+    id: Input_4
+    attenuation: 11db
+    update_interval: 1s
+    
+  - platform: adc
+    pin: GPIO5
+    id: Input_5
+    attenuation: 11db
+    update_interval: 1s
+    
+  - platform: adc
+    pin: GPIO6
+    id: Input_6
+    attenuation: 11db
+    update_interval: 1s
+
   - platform: ct_clamp
     sensor: Input_1
     id: Probe_1
@@ -104,6 +122,39 @@ sensor:
           - 0 -> 0
           - 0.022 -> 0.66
     
+  - platform: ct_clamp
+    sensor: Input_4
+    name: "Probe 4"
+    id: Probe_4
+    sample_duration: 200ms
+    update_interval: 1s
+    filters:
+      - calibrate_linear:
+          - 0 -> 0
+          - 0.022 -> 0.66
+
+  - platform: ct_clamp
+    sensor: Input_5
+    name: "Probe 5"
+    id: Probe_5
+    sample_duration: 200ms
+    update_interval: 1s
+    filters:
+      - calibrate_linear:
+          - 0 -> 0
+          - 0.022 -> 0.66
+
+  - platform: ct_clamp
+    sensor: Input_6
+    name: "Probe 6"
+    id: Probe_6
+    sample_duration: 200ms
+    update_interval: 1s
+    filters:
+      - calibrate_linear:
+          - 0 -> 0
+          - 0.022 -> 0.66
+          
   - platform: total_daily_energy
     name: "Total Daily Power"
     power_id: current_power
