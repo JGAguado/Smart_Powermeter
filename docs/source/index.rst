@@ -11,7 +11,7 @@ the target of monitoring the real-time consumption of AC sources.
 
 It can be powered from a :math:`220 V_{AC}` source so it can be mounted on the electric cabinet in order to monitor your home electric consumption.
 
-In addition it can support displays such as a round-corner 1.69" screen (based on the ST7789 driver) or a 2.9" monochrome e-paper display, to 
+In addition it can support 2.9" black and white e-paper display, in order to 
 provide graphic information about the measured consumption, as well as spent money or any info you want to show.
 
 

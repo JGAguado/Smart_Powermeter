@@ -97,6 +97,35 @@ However, if the CT clamp output is also a current, a burden resistor is necessar
 convenience, making it easier to desolder if not needed, as explained in the :ref:`desoldering` section.
 
 
+E-paper
+--------
+    
+The |Product| offers support for a 2.9" black and white e-ink display, through a clamp connector. The pinout with respect to the ESP32 GPIOs goes as follows:
+
+.. figure:: images/getting_started/epaper.png
+    :align: right
+    :figwidth: 150px
+
+.. list-table:: Pinout table
+    :widths: 10 10 
+    :header-rows: 1
+
+    * - ESP32
+      - E-paper
+    * - 14
+      - BUSY
+    * - 15
+      - RST
+    * - 13
+      - DC/MISO
+    * - 12
+      - CLK
+    * - 11
+      - MOSI
+    * - 10
+      - CS
+
+
 Communications
 -----------
 In addition to the analog input mentioned before, there is also a direct connection to:
