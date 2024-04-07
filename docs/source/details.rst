@@ -89,7 +89,15 @@ to prepare the signal for reading by the :term:`ADC` of the microcontroller. For
 `guide <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_.
 
 
-.. plot:: files/signals.py
+.. plot::
+
+    import matplotlib.pyplot as plt
+    import numpy as np
+    x = np.random.randn(1000)
+    plt.hist( x, 20)
+    plt.grid()
+    plt.title(r'Normal: $\mu=%.2f, \sigma=%.2f$'%(x.mean(), x.std()))
+    plt.show()
     
 
 In general, except for the SCT-013-000, the induced voltage can be read by the conditioning circuit mentioned earlier. 
