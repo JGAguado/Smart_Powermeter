@@ -88,8 +88,8 @@ Each channel incorporates a simple internal circuit that adjusts the induced vol
 to prepare the signal for reading by the :term:`ADC` of the microcontroller. For more details on the circuit, refer to this 
 `guide <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_.
 
-.. image:: images/getting_started/Figure_1.png
-    :width: 75%
+
+.. plot:: files/signals.py
     
 
 In general, except for the SCT-013-000, the induced voltage can be read by the conditioning circuit mentioned earlier. 
