@@ -37,7 +37,6 @@ extensions = [
     'sphinx_copybutton',
     'sphinx.ext.inheritance_diagram',
     'sphinx.ext.mathjax',
-    'matplotlib.sphinxext.only_directives',
     'matplotlib.sphinxext.plot_directive',
     'IPython.sphinxext.ipython_directive',
     'IPython.sphinxext.ipython_console_highlighting',
