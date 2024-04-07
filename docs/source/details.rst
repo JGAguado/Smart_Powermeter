@@ -89,6 +89,10 @@ to prepare the signal for reading by the :term:`ADC` of the microcontroller. For
 `guide <https://docs.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino.html>`_.
 
 
+.. plot:: files/signals.py
+    
+.. plot:: files/ellipse.py
+
 .. plot::
 
     import matplotlib.pyplot as plt
@@ -98,7 +102,6 @@ to prepare the signal for reading by the :term:`ADC` of the microcontroller. For
     plt.grid()
     plt.title(r'Normal: $\mu=%.2f, \sigma=%.2f$'%(x.mean(), x.std()))
     plt.show()
-    
 
 In general, except for the SCT-013-000, the induced voltage can be read by the conditioning circuit mentioned earlier. 
 However, if the CT clamp output is also a current, a burden resistor is necessary. The |Product| includes a **22 Ohm** resistor for 

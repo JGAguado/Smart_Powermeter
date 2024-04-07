@@ -1,4 +1,5 @@
 from datetime import date
+import matplotlib
 
 # Configuration file for the Sphinx documentation builder.
 
