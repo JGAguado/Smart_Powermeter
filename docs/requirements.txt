@@ -4,10 +4,6 @@
 #
 #    pip-compile docs/requirements.in
 #
-matplotlib
-ipython
-numpydoc
-
 alabaster==0.7.12
     # via sphinx
 babel==2.10.3
