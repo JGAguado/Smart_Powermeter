@@ -111,6 +111,8 @@ As an example (and test) you can use this :download:`smart-powermeter-offline.bi
 .. image:: images/getting_started/Flash_tool.png
     :width: 30%
 
+.. Note:: Make sure that the checkbox close to the filepath is also checked!
+
 Arduino
 --------
 If you are still interested in programming directly with the Arduino IDE, the procedure is no 
