@@ -42,8 +42,6 @@ captive_portal:
 improv_serial:
 
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
   ap:
     ssid: "${ap_ssid}"
     password: "${ap_pwd}"
