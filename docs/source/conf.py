@@ -21,7 +21,8 @@ rst_epilog  = """
 .. |Product| replace:: %s
 .. |Author| replace:: %s
 .. |Email| replace:: %s
-.. |Version| replace:: %s%s
+.. |Version| replace:: %s
+.. |Release| replace:: %s
 .. |Date| replace:: %s
 """ % (project, author, email, version, release, compile_date)
 
