@@ -9,7 +9,7 @@ project = 'Smart Powermeter'
 author = 'J.G.Aguado'
 email = 'jon-garcia@hotmail.com'
 
-release = 'R2'
+release = 'R1'
 version = 'V2'
 
 today = date.today()
