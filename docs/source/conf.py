@@ -9,8 +9,8 @@ project = 'Smart Powermeter'
 author = 'J.G.Aguado'
 email = 'jon-garcia@hotmail.com'
 
-release = 'R1'
-version = 'V2'
+release = '1'
+version = '2'
 
 today = date.today()
 compile_date = today.strftime("%B %d, %Y")
@@ -21,7 +21,8 @@ rst_epilog  = """
 .. |Product| replace:: %s
 .. |Author| replace:: %s
 .. |Email| replace:: %s
-.. |Version| replace:: %s%s
+.. |Version| replace:: %s
+.. |Release| replace:: %s
 .. |Date| replace:: %s
 """ % (project, author, email, version, release, compile_date)
 
