@@ -1,9 +1,6 @@
 💬 :term:`FAQ`
 =============================
 
-The readings from the CT clamps are very noisy and I don't see any signal at all
-    Most likely is because the jack connectors from the CT clamp are too deeply inserted: try pulling them out about ~1-2 mm from the point where they would bottom out.  
-
 Can I upload ESPHome directly from the Home Assistance setup running on my Raspberry Pi?
     Yes you can, and actually this is one of the simplest and more effective way to upload ESPHome.
 

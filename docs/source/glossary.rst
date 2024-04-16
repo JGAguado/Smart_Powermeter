@@ -67,6 +67,9 @@
    THT
        Through Hole Technology
 
+   TRS
+       Tip, Ring and Sleeve (parts of a jack connector)
+
    IIC
        Inter-Integrated Circuit
     

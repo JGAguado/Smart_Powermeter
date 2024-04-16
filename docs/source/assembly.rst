@@ -22,15 +22,41 @@ The |Product| comes as a set consisting on a :term:`SMD` pre-soldered board to w
 The soldering of these two components is quite fast, just make sure not to bend any of the power supply module pins. If you have never soldered or you want to improve your soldering techniques I recommend you 
 the `Adafruit Guide To Excellent Soldering <https://learn.adafruit.com/adafruit-guide-excellent-soldering>`_
 
-.. _desoldering:
+.. _jumpers:
 
-Desoldering
+Jumpers
 ------------
-If you ever need to desolder any burdern resistor, for instance, when opting for a different CT clamp on that channel, simply apply heat and remove it carefully.
+In order to make easier the enabling/disabling of certain functions, some jumper pads have been integrated. Despite their state can be reconfigured, by cutting the trace in between or applying some solder wire in between, the default setting is the recommended one. 
 
-.. figure:: images/getting_started/burden_resistor.png
+There are three different kind of jumpers, all of them mounted on the bottom surface of the board:
+
+1. Power LED: This jumper is **disabled** by default, so the Power LED indicator will not show any light. For enabling it, carefully apply some solder wire to both pads assuring a connection between them. If you regret it later, just desolder it with care and clean the surface afterwards.
+
+
+.. figure:: images/getting_started/jumper_led.png
     :align: center
-    :figwidth: 300px
+    :figwidth: 100px 
+
+
+2. RRS: This jumper is **disabled** by default, so the middle ring of the Jack connector is not connected to the tip. For enabling it, carefully apply some solder wire to both pads assuring a connection between them. If you regret it later, just desolder it with care and clean the surface afterwards.
+
+
+.. figure:: images/getting_started/jumper_rrs.png
+    :align: center
+    :figwidth: 100px 
+
+
+3. Burden resistor. This jumper is **enabled** by default, so the burden resistor is active in the circuit. For disabling it, use a thin cutter to section the trace route between the two pads of the jumper. If you regret it later, just solder it back with care.
+
+
+.. figure:: images/getting_started/jumper_burden_resistors.png
+    :align: center
+    :figwidth: 100px 
+
+
+.. Note:: 
+  For cutting the trace route of a jumper it's better to **apply less pressure** with the cutter in the beggining **and repeat** the operation several times rather than apply bruit force just once.
+
 
 
 Assembly

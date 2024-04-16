@@ -82,7 +82,7 @@ When selecting a CT clamp, it is crucial to consider the anticipated measurement
 exceeding the ESP32's maximum reading range.
 
 .. Note:: 
-  The default CT clamp in the set is the SCT-013-000, which has the highest range in the series. However, for measurements al low power <10W, it may not provide the desired level of quality.
+  The default CT clamp in the set is the SCT-013-000, which has the highest range in the series. However, for measurements at low power <10W, it may not provide the desired level of quality.
 
 Each channel incorporates a simple internal circuit that adjusts the induced voltage from the CT clamp (proportional to the measured current) 
 to prepare the signal for reading by the :term:`ADC` of the microcontroller. For more details on the circuit, refer to this 
@@ -93,9 +93,17 @@ to prepare the signal for reading by the :term:`ADC` of the microcontroller. For
     
 
 In general, except for the SCT-013-000, the induced voltage can be read by the conditioning circuit mentioned earlier. 
-However, if the CT clamp output is also a current, a burden resistor is necessary. The |Product| includes a **22 Ohm** resistor for 
-convenience, making it easier to desolder if not needed, as explained in the :ref:`desoldering` section.
+However, if the CT clamp output is also a current, a burden resistor is necessary, for which a **22 Ohm** is integrated. In case the burden resistor isn't needed, a trace-cuttable jumper placed on the bottom layer can be carefully cut, as explained in the :ref:`jumpers` section.
 
+
+LED indicators
+--------
+    
+The |Product| offers a visual help to assist debuging the board through two LED indicators: Power and GPIO.
+
+The Power LED indicator is **disconnected** by default, under normal working circumstances this would be an unnecesary energy waste. For enabling it you just need to solder the jumper placed side the silkscreen bulb, located on the bottom layer. For more info, visit the :ref:`jumpers` section.
+
+The GPIO indicator is directly attached to GPIO 08, and can be turned on/off directly on the firmware uploaded, without any need of intermediate jumpers.
 
 E-paper
 --------
