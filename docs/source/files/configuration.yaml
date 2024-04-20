@@ -12,8 +12,6 @@ esphome:
   project:
     name: "${project_name}"
     version: "${project_version}"
-  includes:
-    - libraries/icon-map.h
 
 esp32:
   board: esp32-s2-saola-1
@@ -258,19 +256,19 @@ display:
           if(id(wifisignal).has_state ()) {
             if (id(wifisignal).state >= -50) {
                 // Excellent # mdi-wifi-strength-4 
-                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[4].c_str());
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, "\U0000e1d8");
             } else if (id(wifisignal).state  >= -60) {
                 //Good # mdi-wifi-strength-3 
-                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[3].c_str());
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, "\U0000ebe1");
             } else if (id(wifisignal).state  >= -67) {
                 //Fair # mdi-wifi-strength-2 
-                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[2].c_str());
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, "\U0000ebd6");
             } else if (id(wifisignal).state  >= -70) {
                 //Weak # mdi-wifi-strength-1 
-                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[1].c_str());
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, "\U0000ebe4");
             } else {
                 //Unlikely working mdi-wifi-strength-0
-                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, wifi_icon_map[0].c_str());
+                it.printf(x_head, y_head, id(font_icon), TextAlign::TOP_LEFT, "\U0000f0b0");
             }
           }
 
