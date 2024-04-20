@@ -32,7 +32,7 @@ ota:
 
 #Public location of this yaml file
 dashboard_import:
-  package_import_url: github://JGAguado/Smart_Powermeter/docs/source/files/configuration.yaml@main
+  package_import_url: github://JGAguado/Smart_Powermeter/docs/source/files/configuration.yaml@V2R2
   import_full_config: true
 
 # Enable fallback hotspot (captive portal) in case wifi connection fails
