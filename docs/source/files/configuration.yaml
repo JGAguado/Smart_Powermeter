@@ -169,10 +169,7 @@ sensor:
     id: wifisignal
     update_interval: 20s
 
-  # Homeassistant data
-  - platform: homeassistant
-    id: cost
-    entity_id: sensor.smart_powermeter_total_daily_power_cost
+
 
 font:
   - file: "gfonts://Audiowide"
@@ -541,9 +538,4 @@ display:
           "%.0fkWh", measured);  
           it.image(200, 85, id(power));    
 
-          measured = id(cost).state;
-          it.image(200, 105, id(cash));          
-          
-          it.printf(275, 105, id(font_gauge), TextAlign::TOP_RIGHT, 
-          "%.2f", measured);  
-          it.image(275, 105, id(euro));
+

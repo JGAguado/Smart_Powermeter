@@ -78,3 +78,32 @@ After the device is installed and calibrated, make sure you add the computed pow
 
 .. image:: images/getting_started/Screenshot_1.png
     :width: 69%
+
+Further steps
+^^^^^^^^^^^^
+
+If you defined the smart-powermeter as source of data for the *Energy dashboard* on HA and you entered a parameter (fixed or variable) to keep track of the costs of the consumed energy, you can display the daily costs directly on the Smart Powermeter!
+
+For doing so, you will need to first add a *sensor* component to your YAML:
+.. parsed-literal::
+
+    sensor:
+    - platform: homeassistant
+      id: cost
+      entity_id: sensor.smart_powermeter_total_daily_power_cost
+
+.. Note::
+    This *entity_id* is just an example, check on your system what's the actual name
+
+
+Then you will need to actually enter the code to display the value on the e-paper. Therefore, go to the end of the code and append the following lines:
+
+.. parsed-literal::
+
+    cost = id(cost).state;
+    it.image(200, 105, id(cash));          
+
+    it.printf(275, 105, id(font_gauge), TextAlign::TOP_RIGHT, 
+    "%.2f", cost);  
+    it.image(275, 105, id(euro));
+
