@@ -38,59 +38,25 @@ the one I strongly recommend is the one through the `ESPHome Add-on for Home Ass
     :align: center
     :figwidth: 400px
 
-4. Open the recently created file and replace the content with the example configuration. With all the dependencies, the working tree would look like:
-
-.. Tip::
-    A very easy way to upload and copy files (code or even images) into your ESPHome folder hosted in your HA instance is 
-    with the help of the Visual Studio Code integration for HA. This way you can just drag and drop the files over the folder 
-    on the Home Assistant’s Visual Studio Code navigation panel on your left.
-
-| esphome
-| ├── libraries
-| │   └── icon-map.h
-| ├── images
-| │   └── Gauge.png
-| │   └── Gauge_1.png
-| └── smart-powermeter.yaml
-| 
-| 
-    
-
-In the folder structure above:
-``icon-map.h`` 
-    This *mapping* file is used to associate a variable name with the *icon ID* from the previous file. It contains the following code:
-  
-.. code-block:: C
-   :linenos:
-
-   #include <map>
-   std::map<int, std::string> wifi_icon_map
-   {
-    {0, "\U0000f0b0"},
-    {1, "\U0000ebe4"},
-    {2, "\U0000ebd6"},
-    {3, "\U0000ebe1"},
-    {4, "\U0000e1d8"},
-   };
-
-
-``Gauge.png`` and ``Gauge.png``
-    This are some customized gauges to be plotted as part of the background.
-
-    .. image:: images/getting_started/Gauge.png
-        :width: 40px   
-    .. image:: images/getting_started/Gauge_1.png
-        :width: 80px
-
-``smart-powermeter.yaml``
-    This is the YAML configuration file, the most important file that configures your ESPHome-based |Porduct|:
-
+4. Open the recently created file and replace the content with the example configuration ``smart-powermeter.yaml``
 
 .. Note:: You might need to keep the encription keys *OTA* and *API*
 
 .. literalinclude:: files/configuration.yaml
    :language: yaml
    :linenos:
+
+
+    
+.. Note::
+    ``Gauge.png`` and ``Gauge.png`` are some customized gauges to be plotted as part of the background. You can download them to your local path, or just invoke the url as in the *.yaml* example.
+
+        .. image:: images/getting_started/Gauge.png
+            :width: 40px   
+        .. image:: images/getting_started/Gauge_1.png
+            :width: 80px
+
+
 
 5. Click on install, make sure that the the board is connected via the USB-C (and that it is into flashing mode, see up in this guide) to the device running the Home Assistant (in my case a Raspberry Pi) before selecting the mode of installation.
 
@@ -103,6 +69,13 @@ In the folder structure above:
 
 Now, your ESPHome-based |Product| should be ready to log data and stream it to your Home Assistant. Note that the current configuration is just an example and you can customize it at your will, including the calibration. 
 
+
+.. Tip::
+    A very easy way to upload and copy files (code or even images) into your ESPHome folder hosted in your HA instance is 
+    with the help of the Visual Studio Code integration for HA. This way you can just drag and drop the files over the folder 
+    on the Home Assistant’s Visual Studio Code navigation panel on your left.
+
+
 Flash Tools
 ^^^^^^^^^^^^
 If you want to deploy an ESPHome already compiled *.bin* image, you can use Espressif's official `Flash Download Tools <https://www.espressif.com/en/support/download/other-tools>`_ to upload it into your Smart Powermeter. 
@@ -110,6 +83,8 @@ As an example (and test) you can use this :download:`smart-powermeter-offline.bi
 
 .. image:: images/getting_started/Flash_tool.png
     :width: 30%
+
+.. Note:: Make sure that the checkbox close to the filepath is also checked!
 
 Arduino
 --------

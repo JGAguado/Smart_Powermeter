@@ -199,11 +199,11 @@ spi:
   mosi_pin: GPIO11  # Works on the e-paper
 
 image:
-  - file: "images/Gauge.png"
+  - file: https://smart-powermeter.readthedocs.io/en/v2r2/_images/Gauge.png
     id: gauge
 
-  - file: "images/Gauge_1.png"
-    id: gauge_1  
+  - file: https://smart-powermeter.readthedocs.io/en/v2r2/_images/Gauge_1.png
+    id: gauge_1 
 
   - file: mdi:home-lightning-bolt
     id: power
