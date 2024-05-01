@@ -1,10 +1,8 @@
 
 [![Documentation Status][documentation-shield]][documentation]
-[![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
-
 [![Project Maintenance][maintenance-shield]][maintenance]
-[![buyit][buyit-shield]][buymecoffee]
+[![buyit][buyit-shield]][buyit]
 
 # Smart Powermeter
 The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 CT clamps for reading electric current and real-time display on an 2.9" e-paper display.
@@ -24,10 +22,7 @@ The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 
 
 
 [documentation-shield]: https://readthedocs.org/projects/smart-powermeter/badge/?version=v2r1&style=for-the-badge
-[documentation]: https://smart-powermeter.readthedocs.io/en/latest/
-
-[releases-shield]: https://img.shields.io/github/release/JGAguado/Smart_Powermeter.svg?style=for-the-badge
-[releases]: https://github.com/JGAguado/Smart_Powermeter/releases
+[documentation]: https://smart-powermeter.readthedocs.io/en/v2r2/
 
 [license-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=for-the-badge
 
