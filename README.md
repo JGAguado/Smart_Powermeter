@@ -4,7 +4,7 @@
 [![License][license-shield]](LICENSE)
 
 [![Project Maintenance][maintenance-shield]][maintenance]
-[![BuyMeCoffee][buymecoffee-shield]][buymecoffee]
+[![buyit][buyit-shield]][buymecoffee]
 
 # Smart Powermeter
 The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 CT clamps for reading electric current and real-time display on an 2.9" e-paper display.
@@ -23,7 +23,7 @@ The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 
 
 
 
-[documentation-shield]: https://readthedocs.org/projects/smart-powermeter/badge/?version=latest&style=for-the-badge
+[documentation-shield]: https://readthedocs.org/projects/smart-powermeter/badge/?version=v2r1&style=for-the-badge
 [documentation]: https://smart-powermeter.readthedocs.io/en/latest/
 
 [releases-shield]: https://img.shields.io/github/release/JGAguado/Smart_Powermeter.svg?style=for-the-badge
@@ -34,5 +34,5 @@ The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 
 [maintenance-shield]: https://img.shields.io/badge/maintainer-J.%20G.%20Aguado-blue.svg?style=for-the-badge
 [maintenance]: https://github.com/JGAguado
 
-[buymecoffee-shield]: https://img.shields.io/badge/buy%20me%20a%20coffee-support-yellow.svg?style=for-the-badge
-[buymecoffee]: https://www.buymeacoffee.com/J.G.Aguado
+[buyit-shield]: https://img.shields.io/badge/buy%20it%20on-elecrow-blue.svg?style=for-the-badge
+[buyit]: https://www.elecrow.com/smart-powermeter.html
