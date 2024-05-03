@@ -1,7 +1,6 @@
 
 [![Documentation Status][documentation-shield]][documentation]
 [![License][license-shield]](LICENSE)
-
 [![Project Maintenance][maintenance-shield]][maintenance]
 [![buyit][buyit-shield]][buyit]
 
