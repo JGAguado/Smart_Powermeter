@@ -1,7 +1,6 @@
 
 [![Documentation Status][documentation-shield]][documentation]
 [![License][license-shield]](LICENSE)
-
 [![Project Maintenance][maintenance-shield]][maintenance]
 [![buyit][buyit-shield]][buyit]
 
@@ -27,8 +26,8 @@ The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 
 
 [license-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=for-the-badge
 
-[maintenance-shield]: https://img.shields.io/badge/maintainer-J.%20G.%20Aguado-blue.svg?style=for-the-badge
+[maintenance-shield]: https://img.shields.io/badge/maintainer-J.%20G.%20Aguado-2e48a7.svg?style=for-the-badge
 [maintenance]: https://github.com/JGAguado
 
-[buyit-shield]: https://img.shields.io/badge/buy%20it%20on-elecrow-blue.svg?style=for-the-badge
+[buyit-shield]: https://img.shields.io/badge/get%20it%20on-elecrow-399BD7.svg?style=for-the-badge
 [buyit]: https://www.elecrow.com/smart-powermeter.html
