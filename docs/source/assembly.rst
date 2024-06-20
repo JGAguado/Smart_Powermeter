@@ -55,7 +55,7 @@ There are three different kind of jumpers, all of them mounted on the bottom sur
 
 
 .. Note:: 
-  For cutting the trace route of a jumper it's better to **apply less pressure** with the cutter in the beggining **and repeat** the operation several times rather than apply bruit force just once.
+  For cutting the trace route of a jumper it's better to **apply less pressure** with the cutter in the beggining **and repeat** the operation several times rather than apply brute force just once.
 
 
 
@@ -72,4 +72,4 @@ Once the board is fully soldered, it's time to mount the e-paper display (in cas
     :width: 100%
 
 Last but not least, it is highly recommended to mount the |Product| on an enclosure (like the suggested :ref:`enclosure`) to prevent unintended contacts between the bottom 
-side of the board (since the hig-voltage pins are exposed).
+side of the board (since the high-voltage pins are exposed).
