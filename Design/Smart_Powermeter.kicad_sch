@@ -5084,16 +5084,6 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 27.94) (xy 106.68 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "089cf9ab-15e5-4c26-b25b-22ba0fada85b")
-	)
-	(wire
-		(pts
 			(xy 241.3 105.41) (xy 241.3 107.95)
 		)
 		(stroke
@@ -6154,16 +6144,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 33.02) (xy 105.41 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7179ada0-61dc-44c2-9fa4-999686aba548")
-	)
-	(wire
-		(pts
 			(xy 27.94 24.13) (xy 27.94 39.37)
 		)
 		(stroke
@@ -6321,16 +6301,6 @@
 			(type default)
 		)
 		(uuid "7f848149-04a3-49ef-9d8c-a6798b9d6cec")
-	)
-	(wire
-		(pts
-			(xy 105.41 27.94) (xy 106.68 27.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "81487b18-1ba2-4076-a4e5-77f8c6e630d5")
 	)
 	(wire
 		(pts
@@ -6644,16 +6614,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 30.48) (xy 105.41 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a27554c8-461c-45c7-b224-f1f382965d99")
-	)
-	(wire
-		(pts
 			(xy 78.74 168.91) (xy 78.74 146.05)
 		)
 		(stroke
@@ -6911,16 +6871,6 @@
 			(type default)
 		)
 		(uuid "c34ba41e-2704-4760-9050-46fee240e058")
-	)
-	(wire
-		(pts
-			(xy 105.41 25.4) (xy 107.95 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c3e13bb6-33f2-4ab8-9879-7f8c7548d024")
 	)
 	(wire
 		(pts
@@ -7582,28 +7532,6 @@
 			)
 		)
 	)
-	(global_label "TX"
-		(shape input)
-		(at 107.95 30.48 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0899759e-a321-411e-841b-6eb1c092e5e7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.1123 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "V3"
 		(shape input)
 		(at 36.83 64.77 180)
@@ -7732,28 +7660,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "RX"
-		(shape input)
-		(at 107.95 33.02 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "4d9d3d85-f118-4483-9f37-fcf7dbf7e966")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.4147 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -9817,86 +9723,6 @@
 			(project "Smart_Powermeter"
 				(path "/2d3dfb65-c4fb-4575-845d-da2db77cf50b"
 					(reference "#PWR020")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic_MountingPin:Conn_01x04_MountingPin")
-		(at 100.33 27.94 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "48e17de7-79e1-4cab-aef7-7855599f5a7f")
-		(property "Reference" "PH1"
-			(at 97.79 30.8357 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x04_MountingPin"
-			(at 97.79 28.2957 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical"
-			(at 100.33 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 100.33 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 100.33 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "4"
-			(uuid "8a7549d0-5050-4e7a-92fd-5a33e4093761")
-		)
-		(pin "MP"
-			(uuid "d26074bc-c0c6-4287-8e8c-62355a5ce5f5")
-		)
-		(pin "1"
-			(uuid "1243d22c-bdf5-4c0e-8b40-f955714e3534")
-		)
-		(pin "2"
-			(uuid "b1dc2104-d42c-4afa-b29a-07b7cc7e3e42")
-		)
-		(pin "3"
-			(uuid "6bd5f430-e93a-4f1f-9c4e-6ffb46c88aa8")
-		)
-		(instances
-			(project "Smart_Powermeter"
-				(path "/2d3dfb65-c4fb-4575-845d-da2db77cf50b"
-					(reference "PH1")
 					(unit 1)
 				)
 			)
@@ -12307,72 +12133,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 106.68 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a84b6ff7-8353-4548-aa8c-be4c270ba88c")
-		(property "Reference" "#PWR027"
-			(at 106.68 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 106.68 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 106.68 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 106.68 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "00813f8a-e15e-47ca-81a6-dd9bda6a5924")
-		)
-		(instances
-			(project "Smart_Powermeter"
-				(path "/2d3dfb65-c4fb-4575-845d-da2db77cf50b"
-					(reference "#PWR027")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 163.83 87.63 0)
 		(unit 1)
@@ -13625,72 +13385,6 @@
 			(project "Smart_Powermeter"
 				(path "/2d3dfb65-c4fb-4575-845d-da2db77cf50b"
 					(reference "PB1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 107.95 25.4 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fa0cba1d-ba42-488f-9f83-c3633a26a4bd")
-		(property "Reference" "#PWR028"
-			(at 107.95 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 107.95 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 107.95 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 107.95 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 107.95 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1ce60ddf-f318-4b79-954f-af8bdb4d0ccb")
-		)
-		(instances
-			(project "Smart_Powermeter"
-				(path "/2d3dfb65-c4fb-4575-845d-da2db77cf50b"
-					(reference "#PWR028")
 					(unit 1)
 				)
 			)
