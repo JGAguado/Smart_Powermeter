@@ -9,9 +9,11 @@
 # Smart Powermeter
 The Smart Powermeter is powered by a ESP32-S2, allowing the measurement up to 6 CT clamps for reading electric current and real-time display on an 2.9" e-paper display.
 
+Additionally, the 3rd version adds support to voltage measurement with up to 3 voltage measurement channels and independent adjustable gains. 
+
 <p float="left">
-   <img src="./Documentation/Images/Top.png" width="49%">
-   <img src="./Documentation/Images/Bottom.png" width="49%">   
+   <img src="./docs/source/images/renders/Top.png" width="49%">
+   <img src="./docs/source/images/renders/Bottom.png" width="49%">   
 </p>
 
 ## Project tree
