@@ -201,24 +201,30 @@ spi:
 image:
   - file: https://smart-powermeter.readthedocs.io/en/v2r2/_images/Gauge.png
     id: gauge
+    type: binary
 
   - file: https://smart-powermeter.readthedocs.io/en/v2r2/_images/Gauge_1.png
     id: gauge_1 
+    type: binary
 
   - file: mdi:home-lightning-bolt
     id: power
+    type: grayscale
     resize: 18x18
     
   - file: mdi:cash-multiple
     id: cash
+    type: grayscale
     resize: 18x18
 
   - file: mdi:currency-eur
     id: euro
+    type: grayscale
     resize: 18x18
 
   - file: mdi:lightning-bolt
     id: bolt
+    type: grayscale
     resize: 22x22
 
 display:
