@@ -21,8 +21,7 @@ rst_epilog  = """
 .. |Product| replace:: %s
 .. |Author| replace:: %s
 .. |Email| replace:: %s
-.. |Version| replace:: %s
-.. |Release| replace:: %s
+.. |Version| replace:: %s%s
 .. |Date| replace:: %s
 """ % (project, author, email, version, release, compile_date)
 
@@ -36,7 +35,11 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
     'sphinx_copybutton',
+    'sphinxcontrib.googleanalytics',
+
 ]
+ 
+googleanalytics_id = "G-42LV356ZGP"
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
